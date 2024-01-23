@@ -1,6 +1,10 @@
-import express from "express";
-import connect from "./schemas/index.js";
-import ProductsRouter from "./routes/products.router.js";
+import express from 'express';
+import connect from './schemas/index.js';
+import ProductsRouter from './routes/products.router.js';
+
+require('dotenv').config();
+const port = process.env.port;
+const id = process.env.ID;
 
 const app = express();
 const PORT = 3000;
@@ -13,12 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  return res.json({ message: "Hi!" });
+router.get('/', (req, res) => {
+  return res.json({ message: 'Hi!' });
 });
 
-app.use("/api", ProductsRouter);
+app.use('/api', ProductsRouter);
 
 app.listen(PORT, () => {
-  console.log(PORT, "포트로 서버가 열렸어요!");
+  console.log(PORT, '포트로 서버가 열렸어요!');
 });
