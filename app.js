@@ -2,10 +2,6 @@ import express from 'express';
 import connect from './schemas/index.js';
 import ProductsRouter from './routes/products.router.js';
 
-require('dotenv').config();
-const port = process.env.port;
-const id = process.env.ID;
-
 const app = express();
 const PORT = 3000;
 
